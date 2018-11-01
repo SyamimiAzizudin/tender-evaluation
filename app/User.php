@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Project;
+use App\Supplier;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +18,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'project_id',
+        'supplier_id',
+        'name',
+        'email',
+        'role',
+        'email_verified_at',
+        'password',
     ];
 
     /**
@@ -27,4 +35,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function suppliers()
+    {
+        return $this->belongsTo(Company::class, 'supplier_id');
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'project_id');
+    }
+
 }
