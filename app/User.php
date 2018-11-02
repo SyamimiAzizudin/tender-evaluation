@@ -7,6 +7,7 @@ use App\Supplier;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -38,7 +39,7 @@ class User extends Authenticatable
 
     public function suppliers()
     {
-        return $this->belongsTo(Company::class, 'supplier_id');
+        return $this->belongsTo(Supplier::class, 'supplier_id');
     }
 
     public function projects()

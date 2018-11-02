@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// User Management
+Route::resource('/user', 'UsersController');	
+Route::delete('/user/{user}/delete', 'UsersController@destroy');
