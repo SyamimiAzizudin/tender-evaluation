@@ -3,11 +3,62 @@
  */
 
 /* main page */
+body {
+	font-family: Nunito,sans-serif !important;
+	color: #777 !important;
+}
 .page-header {
 	padding-bottom: 10px;
 	margin: 44px 0 22px;
 	border-bottom: 1px solid #eee;
 }
+img.umw-logo {
+    width: 23%;
+    height: auto;
+}
+.navbar {
+	padding: 0;
+}
+.navbar-brand {
+	padding: 0 15px;
+}
 .row.outer {
-	margin: 40px 0;
+	margin: 0 0 40px;
+}
+.btn-group-xs>.btn, .btn-xs {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+.breadcrumb>li+li:before {
+    content: "/\00a0";
+    padding: 0 5px;
+    color: #ccc;
+}
+.row:after {
+    clear: both;
+}
+.row:after, .row:before {
+    content: " ";
+    display: table;
+}
+.form-control {
+	height: 36px !important;
+}
+td.mv-right {
+	text-align: right;
+}
+.document_supplier input[type="file"] {
+	padding-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+	.navbar-expand-md .navbar-nav .nav-link {
+	    padding-right: 1.5rem;
+	    padding-left: 1.5rem;
+	}
+	.navbar-nav > li {
+		height: 45px;
+	}
 }

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Supplier;
+use Validator;
 use Illuminate\Http\Request;
 
 class SuppliersController extends Controller
@@ -13,7 +16,9 @@ class SuppliersController extends Controller
      */
     public function index()
     {
-        //
+        $suppliers = Supplier::all();
+        // $suppliers = Supplier::withTrashed()->restore();
+        return view('supplier.index', compact('suppliers'));
     }
 
     /**
@@ -34,7 +39,25 @@ class SuppliersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'company_name' => 'required',
+            'bid_value' => 'required',
+        ]);
+
+        if ($request->hasFile('document'))
+        {
+            $image = '/images/document_supplier_' . time() . '.' . $request->document->getClientOriginalExtension();
+            $request->document->move(public_path('images/'), $image);
+        }
+
+        $supplier = new Supplier;
+        $supplier->company_name = $request->company_name;
+        $supplier->bid_value = $request->bid_value;
+        $supplier->document = $image;
+        $supplier->user_id = Auth::user()->id;
+        $supplier->save();
+
+        return redirect()->action('SuppliersController@store')->withMessage('Supplier has been successfully added!');
     }
 
     /**
@@ -56,7 +79,8 @@ class SuppliersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $supplier = Supplier::findOrFail($id);
+        return view('supplier.edit', compact('supplier'));
     }
 
     /**
@@ -68,7 +92,25 @@ class SuppliersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'company_name' => 'required',
+            'bid_value' => 'required',
+        ]);
+
+        $supplier = Supplier::findOrFail($id);
+        if ($request->hasFile('document'))
+        {
+            $image = '/images/document_supplier_' . time() . '.' . $request->document->getClientOriginalExtension();
+            $request->document->move(public_path('images/'), $image);
+            $supplier->document = $image;
+        }
+
+        $supplier->company_name = $request->company_name;
+        $supplier->bid_value = $request->bid_value;
+        $supplier->user_id = Auth::user()->id;
+        $supplier->save();
+
+        return redirect()->action('SuppliersController@index')->withMessage('Supplier has been successfully updated!');
     }
 
     /**
@@ -79,6 +121,8 @@ class SuppliersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $supplier = Supplier::findOrFail($id);
+        $supplier->delete();
+        return back()->withErrors('Supplier has been successfully deleted!');
     }
 }
