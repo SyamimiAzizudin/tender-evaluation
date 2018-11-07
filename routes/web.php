@@ -26,3 +26,12 @@ Route::delete('/user/{user}/delete', 'UsersController@destroy');
 // Company Management
 Route::resource('/supplier', 'SuppliersController');
 Route::delete('/supplier/{supplier}/delete', 'SuppliersController@destroy');
+
+// Project Management
+Route::resource('/project', 'ProjectsController');
+Route::get('/project-supplier', 'ProjectsController@supplierlist');
+Route::get('/project-supplier/{supplier_id}', 'ProjectsController@getSupplierProject');
+Route::post('/project-supplier/{supplier_id}', 'ProjectsController@store');
+Route::get('/project/{supplier_id}/edit', 'ProjectsController@edit');    
+Route::patch('/project-supplier/{supplier_id}', 'ProjectsController@update');
+Route::delete('/project/{project}/delete', 'ProjectsController@destroy');

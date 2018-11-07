@@ -2,7 +2,7 @@
  * Custom CSS for UMW Tender
  */
 
-/* main page */
+/* header */
 body {
 	font-family: Nunito,sans-serif !important;
 	color: #777 !important;
@@ -25,6 +25,8 @@ img.umw-logo {
 .row.outer {
 	margin: 0 0 40px;
 }
+
+/* body */
 .btn-group-xs>.btn, .btn-xs {
     padding: 1px 5px;
     font-size: 12px;
@@ -49,8 +51,13 @@ img.umw-logo {
 td.mv-right {
 	text-align: right;
 }
-.document_supplier input[type="file"] {
+.document input[type="file"] {
 	padding-bottom: 10px;
+}
+
+/* footer */
+div#footer {
+    margin-bottom: 20px;
 }
 
 @media (min-width: 768px) {

@@ -11,7 +11,7 @@ class Project extends Model
 {
 	protected $fillable = [
         'supplier_id',
-        'name',
+        'title',
         'reference_no',
         'status',
         'document'

@@ -77,7 +77,7 @@
             <div class="form-group">
             <label for="role" class="col-md-4 control-label">Role</label>
                 <div class="col-md-6">
-                    {{ Form::select('role', ['superadmin' => 'Super Admin', 'project_owner' => 'Project Owner', 'evaluator_commercial' => 'Evaluator Commercial', 'evaluator_technical' => 'Evaluator Technical'], null, ['class' => 'form-control'], ['placeholder' => 'Select Role']) }}
+                    {{ Form::select('role', ['Super Admin' => 'Super Admin', 'Project Owner' => 'Project Owner', 'Evaluator Commercial' => 'Evaluator Commercial', 'Evaluator Technical' => 'Evaluator Technical'], null, ['class' => 'form-control'], ['placeholder' => 'Select Role']) }}
                 </div>
             </div>
 

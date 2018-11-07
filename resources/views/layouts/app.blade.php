@@ -55,7 +55,7 @@
                                 <a class="nav-link" href="{{ url('/evaluation') }}">Evaluation</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/project') }}">Project Management</a>
+                                <a class="nav-link" href="{{ url('/project-supplier') }}">Project Management</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/supplier') }}">Supplier Management</a>
@@ -112,7 +112,7 @@
     </div><!-- #app -->
 
     <!-- Footer -->
-    <div class="container">
+    <div id="footer" class="container">
         <hr>
         <footer>
             <div class="row">

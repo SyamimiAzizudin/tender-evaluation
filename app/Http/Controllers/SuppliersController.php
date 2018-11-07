@@ -17,7 +17,6 @@ class SuppliersController extends Controller
     public function index()
     {
         $suppliers = Supplier::all();
-        // $suppliers = Supplier::withTrashed()->restore();
         return view('supplier.index', compact('suppliers'));
     }
 
@@ -46,8 +45,8 @@ class SuppliersController extends Controller
 
         if ($request->hasFile('document'))
         {
-            $image = '/images/document_supplier_' . time() . '.' . $request->document->getClientOriginalExtension();
-            $request->document->move(public_path('images/'), $image);
+            $image = '/images/supplier/document_supplier_' . time() . '.' . $request->document->getClientOriginalExtension();
+            $request->document->move(public_path('images/supplier/'), $image);
         }
 
         $supplier = new Supplier;
@@ -100,8 +99,8 @@ class SuppliersController extends Controller
         $supplier = Supplier::findOrFail($id);
         if ($request->hasFile('document'))
         {
-            $image = '/images/document_supplier_' . time() . '.' . $request->document->getClientOriginalExtension();
-            $request->document->move(public_path('images/'), $image);
+            $image = '/images/supplier/document_supplier_' . time() . '.' . $request->document->getClientOriginalExtension();
+            $request->document->move(public_path('images/supplier/'), $image);
             $supplier->document = $image;
         }
 

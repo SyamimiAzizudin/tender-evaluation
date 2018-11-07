@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="row">
 	<div class="col-lg-12">
 		<h3 class="page-header"> Supplier Management</h3>
@@ -12,10 +13,8 @@
 		<div class="page-header">
 			<h3>Edit Supplier</h3>
 		</div>
-
     	<div class="col-md-8 col-md-offset-2">
         {!! Form::model($supplier, ['method' => 'PATCH','action' =>  ['SuppliersController@update', $supplier->id], 'files' => true]) !!}
-
         	<div class="form-group">
         		<label for="company_name" class="col-sm-3 control-label">Supplier Name</label>
         		<div class="col-sm-9">
@@ -32,7 +31,7 @@
 
             <div class="form-group">
                 <label for="document" class="col-sm-3 control-label">Select Document</label>
-                <div class="col-sm-9 document_supplier">
+                <div class="col-sm-9 document">
                     {!! Form::file('document', null, array('placeholder'=>'Document', 'class'=>'form-control')) !!}
                         <a href="{{ $supplier->document }}" target="_blank">{{ $supplier->company_name }} document</a>
                 </div>
@@ -46,7 +45,7 @@
     		</div>
 		{!! Form::close() !!}
     	</div>
-
     </div>
 </div>
+
 @endsection
