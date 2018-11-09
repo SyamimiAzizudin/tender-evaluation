@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Evaluate;
+use App\Project;
 use Illuminate\Http\Request;
 
 class EvaluatesController extends Controller
@@ -13,7 +15,8 @@ class EvaluatesController extends Controller
      */
     public function index()
     {
-        //
+        $evaluates = Evaluate::all();
+        return view('evaluation.index', compact('evaluates'));
     }
 
     /**
