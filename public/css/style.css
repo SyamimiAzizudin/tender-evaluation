@@ -54,12 +54,31 @@ td.mv-right {
 .document input[type="file"] {
 	padding-bottom: 10px;
 }
-
+.login .form-check-label {
+	padding: 0 20px;
+}
 /* footer */
 div#footer {
     margin-bottom: 20px;
 }
-
+/* message error */
+.alert-dismissable .close, .alert-dismissible .close {
+	top: -8px;
+}
+.padding1 {
+    padding: 50px 0 0 !important;
+}
+.padding2 {
+    padding: 20px 0 10px 0;
+}
+.custom1 {
+    width: 240px;
+    height: 95px;
+    white-space: pre-wrap !important;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
 @media (min-width: 768px) {
 	.navbar-expand-md .navbar-nav .nav-link {
 	    padding-right: 1.5rem;

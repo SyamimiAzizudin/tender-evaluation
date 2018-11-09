@@ -53,7 +53,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 form-horizontal">
         <div class="page-header">
-            <h3>Create New Project</h3>
+            <h3>Add Project</h3>
         </div>
         {!! Form::open(array('route' => 'project.store','method'=>'POST', 'files' => true)) !!}
 
@@ -95,7 +95,7 @@
 
             <div class="form-group">
                 <div class = "col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Create</button>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Create Project</button>
                 </div>
             </div>
 

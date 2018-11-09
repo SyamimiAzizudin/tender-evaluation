@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>UMW Tender Evaluation</title>
+    <title>UMW Sourcing</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -52,16 +52,25 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/evaluation') }}">Evaluation</a>
+                                <a class="nav-link" href="{{ url('/report') }}">Report</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/project-supplier') }}">Project Management</a>
+                                <a class="nav-link" href="{{ url('/evaluation') }}">Evaluations</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/supplier') }}">Supplier Management</a>
+                                <a class="nav-link" href="{{ url('/weightage') }}">Weightages</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/user') }}">User Management</a>
+                                <a class="nav-link" href="{{ url('/criteria') }}">Criteria</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/project-supplier') }}">Projects</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/supplier') }}">Suppliers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/user') }}">Users</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}" 
@@ -117,7 +126,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; UMW Tender Evaluation 2018</p>
+                    <p>Copyright &copy; UMW Sourcing 2018</p>
                 </div>
             </div>
         </footer>
