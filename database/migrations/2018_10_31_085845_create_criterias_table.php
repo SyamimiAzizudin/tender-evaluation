@@ -18,7 +18,8 @@ class CreateCriteriasTable extends Migration
             $table->integer('project_id')->index()->unsigned()->nullable();
             $table->integer('category_id')->nullable();
             $table->string('type')->nullable();
-            $table->string('document')->nullable();
+            $table->string('name')->nullable();
+            $table->string('description')->nullable();
             $table->integer('weightage')->nullable();
             $table->string('category_name')->nullable();
             $table->string('subcategory_name')->nullable();
@@ -38,5 +39,10 @@ class CreateCriteriasTable extends Migration
     public function down()
     {
         Schema::dropIfExists('criterias');
+    }
+
+    public function boot()
+    {
+        Schema::defaultStringLength(191);
     }
 }

@@ -35,3 +35,12 @@ Route::post('/project-supplier/{supplier_id}', 'ProjectsController@store');
 Route::get('/project/{supplier_id}/edit', 'ProjectsController@edit');    
 Route::patch('/project-supplier/{supplier_id}', 'ProjectsController@update');
 Route::delete('/project/{project}/delete', 'ProjectsController@destroy');
+
+// Criteria
+Route::resource('/criteria', 'CriteriasController');
+Route::post('import', 'CriteriasController@import')->name('import');
+
+// Evaluation
+Route::resource('/evaluation', 'EvaluatesController');
+
+
