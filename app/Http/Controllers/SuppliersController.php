@@ -40,6 +40,7 @@ class SuppliersController extends Controller
     {
         $this->validate($request, [
             'company_name' => 'required',
+            'short_name' => 'required',
             'bid_value' => 'required',
         ]);
 
@@ -51,6 +52,7 @@ class SuppliersController extends Controller
 
         $supplier = new Supplier;
         $supplier->company_name = $request->company_name;
+        $supplier->short_name = $request->short_name;
         $supplier->bid_value = $request->bid_value;
         $supplier->document = $image;
         $supplier->user_id = Auth::user()->id;
@@ -93,6 +95,7 @@ class SuppliersController extends Controller
     {
         $this->validate($request, [
             'company_name' => 'required',
+            'short_name' => 'required',
             'bid_value' => 'required',
         ]);
 
@@ -105,6 +108,7 @@ class SuppliersController extends Controller
         }
 
         $supplier->company_name = $request->company_name;
+        $supplier->short_name = $request->short_name;
         $supplier->bid_value = $request->bid_value;
         $supplier->user_id = Auth::user()->id;
         $supplier->save();

@@ -15,6 +15,7 @@
                 <tr>
                     <th class="text-center">No</th>
                     <th>Supplier Name</th>
+                    <th>Short Name</th>
                     <th>Bid Value (RM)</th>
                     <th>Document</th>
                     <th></th>
@@ -24,8 +25,9 @@
                 <tr>
                     <td class="text-center">{{ $i }}</td>
                     <td>{{ $supplier->company_name }}</td>
+                    <td>{{ $supplier->short_name }}</td>
                     <td class="mv-right">{{ number_format($supplier->bid_value, 2, '.', ',') }}</td>
-                    <td><a href="{{ $supplier->document }}" target="_blank">Document_{{ $i }}</a></td>
+                    <td><a href="{{ $supplier->document }}" target="_blank">Document_{{ $supplier->short_name }}</a></td>
                     <td>
                         @if( $supplier->id)
                             <a href="{{ action('SuppliersController@edit', $supplier->id) }}" class="btn btn-success btn-xs">Edit</a>
@@ -49,13 +51,20 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 form-horizontal">
         <div class="page-header">
-            <h3>Create New Supplier</h3>
+            <h3>Add Supplier</h3>
         </div>
         {!! Form::open(array('route' => 'supplier.store','method'=>'POST', 'files' => true)) !!}
             <div class="form-group">
                 <label for="company_name" class="col-sm-3 control-label">Supplier Name</label>
                 <div class="col-sm-9">
                     {!! Form::text('company_name', null, array('placeholder'=>'Supplier name', 'class'=>'form-control')) !!}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="short_name" class="col-sm-3 control-label">Short Name</label>
+                <div class="col-sm-9">
+                    {!! Form::text('short_name', null, array('placeholder'=>'Short name', 'class'=>'form-control')) !!}
                 </div>
             </div>
 
@@ -75,7 +84,7 @@
 
             <div class="form-group">
                 <div class = "col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Create</button>
+                    <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Create Supplier</button>
                 </div>
             </div>
 
