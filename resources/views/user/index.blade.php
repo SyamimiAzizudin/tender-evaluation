@@ -16,7 +16,7 @@
                 <table class="table table-striped table-bordered">
                     <tr>
                         <th class="text-center">No</th>
-                        <th>Name</th>
+                        <th>Username</th>
                         <th>Email</th>
                         <th>Company Name</th>
                         <th>Role</th>

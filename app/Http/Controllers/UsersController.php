@@ -23,10 +23,19 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::with(['suppliers'])->get();
+        // $users = User::with(['suppliers'])->withTrashed()->restore();
 
         $suppliers = Supplier::pluck('company_name','id');
 
         return view('user.index', compact('users', 'suppliers'));
+    }
+
+    public function bulkEdit() {
+
+        $users = User::with(['suppliers'])->get();
+        $suppliers = Supplier::pluck('company_name', 'id');
+        // $user = User::findOrFail($id);
+        return view('user.bulk', compact('suppliers', 'users'));
     }
 
     /**

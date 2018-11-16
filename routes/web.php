@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // User Management
 Route::resource('/user', 'UsersController');	
 Route::delete('/user/{user}/delete', 'UsersController@destroy');
+Route::get('/user-bulk', 'UsersController@bulkEdit');
 
 // Company Management
 Route::resource('/supplier', 'SuppliersController');

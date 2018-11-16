@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->integer('supplier_id')->index()->unsigned()->nullable();
             $table->string('name')->unique();
             $table->string('email')->unique();
-            $table->enum('role', ['superadmin', 'project_owner', 'evaluator_commercial', 'evaluator_technical'])->default('project_owner')->nullable();
+            $table->enum('role', ['Super Admin', 'Project Owner', 'Evaluator Commercial', 'Evaluator Technical'])->default('Project Owner')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
