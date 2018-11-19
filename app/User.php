@@ -21,13 +21,20 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'project_id',
+        'user_id',
         'supplier_id',
         'name',
         'email',
         'role',
         'email_verified_at',
         'password',
+    ];
+
+    protected $dates = [
+        'last_login',
+        'created_at',
+        'updated_at',
+        'deleted_at'
     ];
 
     /**
@@ -38,8 +45,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    protected $dates = ['deleted_at'];
 
     public function suppliers()
     {
