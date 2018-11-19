@@ -19,18 +19,20 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// User Management
+// User
 Route::resource('/user', 'UsersController');	
 Route::delete('/user/{user}/delete', 'UsersController@destroy');
-Route::get('/user-bulk', 'UsersController@bulkEdit');
+Route::get('/user-bulk/edit', 'UsersController@bulkEdit');
+Route::patch('/user-bulk/update', 'UsersController@bulkUpdate');
 
-// Company Management
+// Supplier
 Route::resource('/supplier', 'SuppliersController');
 Route::delete('/supplier/{supplier}/delete', 'SuppliersController@destroy');
 
-// Project Management
+// Project
 Route::resource('/project', 'ProjectsController');
 Route::get('/project-supplier', 'ProjectsController@supplierlist');
+Route::get('/dash-project', 'ProjectsController@dash');
 Route::get('/project-supplier/{supplier_id}', 'ProjectsController@getSupplierProject');
 Route::post('/project-supplier/{supplier_id}', 'ProjectsController@store');
 Route::get('/project/{supplier_id}/edit', 'ProjectsController@edit');    
@@ -44,4 +46,5 @@ Route::post('import', 'CriteriasController@import')->name('import');
 // Evaluation
 Route::resource('/evaluation', 'EvaluatesController');
 
+// Report
 

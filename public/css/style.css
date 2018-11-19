@@ -88,3 +88,19 @@ div#footer {
 		height: 45px;
 	}
 }
+/* table user */
+td.center {
+    text-align: center;
+}
+span.count {
+    color: #068B0B;
+    font-size: 30px;
+}
+.btn-bulkedit {
+    padding: 30px 0 0;
+}
+
+/*hanif style*/
+textarea.form-control {
+    height: auto !important;
+}

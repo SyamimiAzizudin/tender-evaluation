@@ -3,22 +3,16 @@
 @section('content')
 
 <div class="row">
-	<div class="col-lg-12">
-		<h3 class="page-header"> User Management</h3>
-    </div>
-</div>
-
-<div class="row">
-	<div class="col-md-8 col-md-offset-2 form-horizontal">
+	<div class="col-lg-12 form-horizontal">
 		<div class="page-header">
 			<h3>Edit User</h3>
 		</div>
-    	<div class="col-md-8 col-md-offset-2">
+    	<div class="col-md-10 col-md-offset-1">
         {!! Form::model($user, ['method' => 'PATCH','action' =>  ['UsersController@update', $user->id], 'files' => true]) !!}
 
             <div class="form-group {{ $errors->has('supplier_id') ? ' has-error' : '' }} ">
-            <label for="company_name" class="col-sm-3 control-label">Company</label>
-                <div class="col-sm-9">
+            <label for="company_name" class="col-sm-2 control-label">Company</label>
+                <div class="col-sm-10">
 
                     <select name="supplier_id" class="form-control">
                         <option value="">Select Company </option>
@@ -36,25 +30,25 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="role" class="col-sm-3 control-label">Role</label>
-                <div class="col-sm-9">
+                <label for="role" class="col-sm-2 control-label">Role</label>
+                <div class="col-sm-10">
                     {{ Form::select('role', ['Super Admin' => 'Super Admin', 'Project Owner' => 'Project Owner', 'Evaluator Commercial' => 'Evaluator Commercial', 'Evaluator Technical' => 'Evaluator Technical'], null, ['class' => 'form-control'], ['placeholder' => 'Select Role']) }}
                 </div>
             </div>
         	<div class="form-group">
-        		<label for="name" class="col-sm-3 control-label">Name</label>
-        		<div class="col-sm-9">
+        		<label for="name" class="col-sm-2 control-label">Name</label>
+        		<div class="col-sm-10">
         			{!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
         		</div>
     		</div>
             <div class="form-group">
-                <label for="email" class="col-sm-3 control-label">Email</label>
-                <div class="col-sm-9">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
                     {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
                 </div>
             </div>
     		<div class="form-group">
-    			<div class = "col-sm-offset-3 col-sm-9">
+    			<div class = "pull-right">
     				<a href="{{ action('UsersController@index') }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</a>
     				<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Save</button>
     			</div>

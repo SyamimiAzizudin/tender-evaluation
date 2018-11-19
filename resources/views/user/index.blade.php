@@ -5,35 +5,57 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <h3 class="page-header">User Management </h3>
+        <h3 class="page-header">List of Users </h3>
         <ol class="breadcrumb">
-            <li><a href="{{ url('/home') }}">Home</a></li>
-            <li class="active">User Management</li>
+            <li><a href="{{ url('/home') }}">Sourcing</a></li>
+            <li class="active">Users</li>
         </ol>
-        
-            <div class="col-md-10 col-md-offset-1">
 
+        <div class="col-lg-12">
+            <div class="col-md-2">
+                <div class="user-count">
+                    <span class="count">{{ $admin_count }}</span>
+                    Admin
+                </div>
+                <div class="user-count">
+                    <span class="count">{{ $po_count }}</span>
+                    Project Owners
+                </div>
+                <div class="user-count">
+                    <span class="count">{{ $eva_count }}</span>
+                    Evaluators
+                </div>
+                <div class="user-count">
+                    <span class="count">{{ $user_count }}</span>
+                    Users
+                </div>
+
+                <div class="btn-bulkedit">
+                    <a href="{{ action('UsersController@bulkEdit') }}" class="">Bulk Edit</a>
+                </div>
+            </div>
+        
+            <div class="col-md-10">
                 <table class="table table-striped table-bordered">
                     <tr>
-                        <th class="text-center">No</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Company Name</th>
-                        <th>Role</th>
+                        <th class="text-center">ID</th>
+                        <th>Name</th>
+                        <th>Roles</th>
+                        <th>Created By</th>
+                        <th>Last Active</th>
+                        <th>Invite</th>
                         <th></th>
                     </tr>
-                    <?php $i=1 ?>
+                    <?php $i=1; ?>
                     @forelse ($users as $user)
+                    <?php $date = $user->last_login; ?>
                     <tr>
                         <td class="text-center">{{ $i }}</td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>
-                            @if($user->supplier_id != null)
-                                {{ $user->suppliers->company_name }}
-                            @endif
-                        </td>
                         <td>{{ $user->role }}</td>
+                        <td>{{ $user->created_by }}</td>
+                        <td>{{ $date ? $date->diffForHumans(): 'Not active yet' }}</td>
+                        <td class="center"><a href="#"><img src="{{ asset('img/mail.png') }}"></a></td>
                         <td>
                             @if($user->id)
                             <a href="{{ action('UsersController@edit', $user->id) }}" class="btn btn-success btn-xs">Edit</a>
@@ -49,6 +71,8 @@
                     @endforelse
                 </table>
             </div>
+        </div>
+
     </div>
 </div>
 
@@ -56,23 +80,11 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2 form-horizontal">
         <div class="page-header">
-            <h3>Create New User</h3>
+            <h3>Create User</h3>
         </div>
     
         <form class="form-horizontal" method="POST" action="{{ route('user.store') }}">
             {{ csrf_field() }}
-
-            <div class="form-group">
-            <label for="supplier_id" class="col-md-4 control-label">Supplier</label>
-                <div class="col-md-6">
-                    <select name="supplier_id" class="form-control">
-                        <option value="">Select Supplier</option>
-                        @foreach($suppliers as $id => $company_name)
-                            <option value="{{ $id }}">{{ $company_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
 
             <div class="form-group">
             <label for="role" class="col-md-4 control-label">Role</label>

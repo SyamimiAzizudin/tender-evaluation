@@ -15,8 +15,6 @@
 		</div>
     	<div class="col-md-12 table">
 
-        	{{-- {!! Form::model($user, ['method' => 'PATCH','action' =>  ['UsersController@bulkEdit', $user->id], 'files' => true]) !!} --}}
-
             <table class="table table-striped table-bordered">
                 <tr>
                     <th class="text-center">No</th>
@@ -26,18 +24,27 @@
                 </tr>
                 <?php $i=1 ?>
                 @forelse ($users as $user)
-                <tr>
-                    <td class="text-center">{{ $i }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->role }}</td>
-                </tr>
+                {!! Form::model($user, ['method' => 'PATCH','action' =>  ['UsersController@bulkEdit', $user->id], 'files' => true]) !!}
+                    <tr>
+                        <td class="text-center">{{ $i }}</td>
+                        <td>
+                            {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
+                        </td>
+                        <td>
+                            {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control')) !!}
+                        </td>
+                        <td>
+                            {{ Form::select('role', ['Super Admin' => 'Super Admin', 'Project Owner' => 'Project Owner', 'Evaluator Commercial' => 'Evaluator Commercial', 'Evaluator Technical' => 'Evaluator Technical'], null, ['class' => 'form-control'], ['placeholder' => 'Select Role']) }}
+                        </td>
+                    </tr>
+                {{-- {!! Form::close() !!} --}}
                 <?php $i++; ?>
                 @empty
                 <tr>
                     <td colspan="6">Looks like there is no user available.</td>
                 </tr>
                 @endforelse
+
             </table>
 
             <div class="form-group pull-right">
@@ -45,7 +52,7 @@
 				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Update User</button>
 			</div>
 
-			{{-- {!! Form::close() !!} --}}
+             {!! Form::close() !!}
 
     	</div>
     </div>
