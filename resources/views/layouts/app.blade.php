@@ -35,7 +35,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/project-dashboard') }}">1. Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/criteria') }}">2. Criteria</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/supplier') }}">3. Supplier</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/evaluation') }}">4. Evaluation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/report') }}">5. Progress Report</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -51,21 +65,6 @@
                                 @endif
                             </li>
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/report') }}">Report</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/evaluation') }}">Evaluations</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/criteria') }}">Criteria</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/project-dashboard') }}">Projects</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/supplier') }}">Suppliers</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/user') }}">Users</a>
                             </li>
