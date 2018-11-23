@@ -58,13 +58,10 @@
                                 <a class="nav-link" href="{{ url('/evaluation') }}">Evaluations</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/weightage') }}">Weightages</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/criteria') }}">Criteria</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/project-supplier') }}">Projects</a>
+                                <a class="nav-link" href="{{ url('/project-dashboard') }}">Projects</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/supplier') }}">Suppliers</a>
@@ -126,14 +123,13 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; UMW Sourcing 2018</p>
+                    <p class="copyright">Copyright &copy; UMW Sourcing 2018</p>
                 </div>
             </div>
         </footer>
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 

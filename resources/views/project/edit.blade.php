@@ -53,6 +53,13 @@
             </div>
 
             <div class="form-group">
+                <label for="price" class="col-sm-3 control-label">Price (RM)</label>
+                <div class="col-sm-9">
+                    {!! Form::number('price', null, array('placeholder'=>'Price (RM)', 'class'=>'form-control')) !!}
+                </div>
+            </div>
+
+            <div class="form-group">
                 <div class = "col-sm-offset-3 col-sm-9">
                     <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Save</button>
                 </div>

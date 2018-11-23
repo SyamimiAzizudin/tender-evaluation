@@ -18,6 +18,7 @@
                     <th>Reference No</th>
                     <th>Project Title</th>
                     <th>Document</th>
+                    <th>Price (RM)</th>
                     <th>Status</th>
                     <th></th>
                 </tr>
@@ -28,6 +29,7 @@
                     <td>{{ $project->reference_no }}</td>
                     <td>{{ $project->title }}</td>
                     <td><a href="{{ $project->document }}" target="_blank">Document_{{ $project->reference_no }}</a></td>
+                    <td>{{ $project->price }}</td>
                     <td>{{ $project->status }}</td>
                     <td>
                         @if( $project->id)

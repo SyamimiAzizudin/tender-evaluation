@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 // User
 Route::resource('/user', 'UsersController');	
 Route::delete('/user/{user}/delete', 'UsersController@destroy');
+// bulk user
 Route::get('/user-bulk/edit', 'UsersController@bulkEdit');
 Route::patch('/user-bulk/update', 'UsersController@bulkUpdate');
 
@@ -32,12 +33,19 @@ Route::delete('/supplier/{supplier}/delete', 'SuppliersController@destroy');
 // Project
 Route::resource('/project', 'ProjectsController');
 Route::get('/project-supplier', 'ProjectsController@supplierlist');
-Route::get('/dash-project', 'ProjectsController@dash');
 Route::get('/project-supplier/{supplier_id}', 'ProjectsController@getSupplierProject');
 Route::post('/project-supplier/{supplier_id}', 'ProjectsController@store');
 Route::get('/project/{supplier_id}/edit', 'ProjectsController@edit');    
 Route::patch('/project-supplier/{supplier_id}', 'ProjectsController@update');
 Route::delete('/project/{project}/delete', 'ProjectsController@destroy');
+
+// new project
+Route::get('/project-dashboard', 'ProjectsController@dash');
+Route::get('/project-add', 'ProjectsController@add');
+Route::get('/project/{project}', 'ProjectsController@getProject');
+Route::get('/project/criteria/{project}', 'ProjectsController@criteriaProject');
+Route::get('/project/supplier/{project}', 'ProjectsController@supplierProject');
+Route::get('/project/evaluator/{project}', 'ProjectsController@evaluatorProject');
 
 // Criteria
 Route::resource('/criteria', 'CriteriasController');
@@ -45,6 +53,9 @@ Route::post('import', 'CriteriasController@import')->name('import');
 
 // Evaluation
 Route::resource('/evaluation', 'EvaluatesController');
+Route::get('/evaluation/{evaluate}', 'EvaluatesController@getEvaluation');
+Route::get('/pro-evaluation', 'EvaluatesController@getEva');
+
 
 // Report
 

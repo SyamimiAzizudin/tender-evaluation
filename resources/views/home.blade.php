@@ -44,7 +44,7 @@
     <div class="row row1">
         <div class="col-md-8 col-md-offset-2 padding2">
             <div class="col-md-4 col-sm-4 col-xs-12">
-                <a type="button" href="{{ url('/project-supplier') }}" class="btn btn-lg btn-primary custom1">Projects</a>
+                <a type="button" href="{{ url('/project-dashboard') }}" class="btn btn-lg btn-primary custom1">Projects</a>
             </div>
             <div class="col-md-4 col-sm-4 col-xs-12">
                 <a type="button" href="{{ url('/criteria') }}" class="btn btn-lg btn-primary custom1">Criteria</a>

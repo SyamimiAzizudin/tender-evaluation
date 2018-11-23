@@ -4,13 +4,35 @@
 
 /* header */
 body {
-	font-family: Nunito,sans-serif !important;
+	/*font-family: Nunito,sans-serif !important;*/
+    font-family: 'Work Sans', sans-serif !important;
 	color: #777 !important;
+    background: #f7f7f7;
 }
 .page-header {
 	padding-bottom: 10px;
-	margin: 44px 0 22px;
-	border-bottom: 1px solid #eee;
+	margin: 44px 0 0;
+	border-bottom: none;
+    color: #646464;
+}
+.btn-default {
+    color: #646464;
+    background-color: #D5D5D5;
+    border-color: #D5D5D5;
+}
+.btn-sort {
+    color: #646464;
+    background: #F7F7F7;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #5898FD;
+    border-color: #5898FD;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #4e88e0;
+    border-color: #4e88e0;
 }
 img.umw-logo {
     width: 23%;
@@ -24,6 +46,16 @@ img.umw-logo {
 }
 .row.outer {
 	margin: 0 0 40px;
+}
+p.copyright {
+    font-size: 18px;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1250px;
+        max-width: 1300px;
+    }
 }
 
 /* body */
@@ -89,12 +121,8 @@ div#footer {
 	}
 }
 /* table user */
-td.center {
+.center {
     text-align: center;
-}
-span.count {
-    color: #068B0B;
-    font-size: 30px;
 }
 .btn-bulkedit {
     padding: 30px 0 0;
@@ -103,4 +131,346 @@ span.count {
 /*hanif style*/
 textarea.form-control {
     height: auto !important;
+}
+
+/* bootstrap */
+.form-row.custom-field {
+    padding: 0 0 20px;
+}
+@media (min-width: 768px) {
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+}
+@media (min-width: 992px) {
+    .single .col-md-9.right-side {
+        margin: 0;
+        width: 74.1%;
+    }
+    .add.project .col-md-4 {
+        width: 34%;
+        max-width: 34%;
+    }
+    .add.project .col-md-5 {
+        width: 42.7%;
+        max-width: 42.7%;
+    }
+    .single.project .next .col-md-3 {
+        width: 31%;
+        max-width: 31%;
+    }
+    .single.project .next .col-md-4 {
+        width: 33.6%;
+        max-width: 33.6%;
+    }
+
+}
+
+/* project page */
+.border-shadow {
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0,0,0,.16);
+    margin:  0 10px 0 0;
+}
+.left-side {
+    padding: 0 10px 0 0;
+}
+.right-side {
+    padding: 0 30px 30px;
+}
+h3.title {
+    margin: 0;
+}
+.left-side .page-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.col-md-6.form-group:nth-child(odd) label.control-label, .col-md-6.form-group:nth-child(odd) .col-sm-12, .col-md-6.form-group:nth-child(odd) {
+    padding-left: 0;
+}
+.col-md-6.form-group:nth-child(even) label.control-label, .col-md-6.form-group:nth-child(even) .col-sm-12, .col-md-6.form-group:nth-child(even) {
+    padding-right: 0;
+}
+.col-md-6.form-group {
+    width: 54%;
+    max-width: 55%;
+}
+.full {
+    padding: 0;
+}
+.mr-full {
+    margin: 0 !important;
+}
+.full.btn {
+    margin: 10px 0 30px;
+}
+.breadcrumb {
+    background: unset;
+}
+.breadcrumb a {
+    color: #646464;
+}
+span.count {
+    display: block;
+    padding-bottom: 20px;
+}
+h3.number {
+    padding-bottom: 10px;
+    margin: 44px 0 10px;
+    font-size: 55px;
+}
+.pending .number {
+    color: #E37777;
+}
+.completed .number {
+    color: #068B0B;
+}
+
+.dropdown.pull-right {
+    padding-bottom: 10px;
+    margin: 44px 0 22px;
+}
+.dropdown-toggle:after {
+    content: none;
+}
+
+/* add project */
+.col-md-9.right-side {
+    width: 74%;
+}
+.add.project .page-header {
+    margin: 44px 0 0;
+}
+.add.project .col-md-4.form-group {
+    padding: 0 0 0 15px;
+}
+.add.project .col-md-5.form-group, .add.project .col-sm-5.my-1{
+    padding: 0;
+}
+.add label.control-label {
+    color: #bc0c0c;
+}
+label.lbl-title {
+    font-weight: normal;
+    margin-left: 20px;
+}
+
+/* table */
+tbody th, tr, .table-bordered, td {
+    background: #fff;
+    border-top: none !important;
+    border-right: none !important;
+    border-left: none !important;
+}
+th {
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 2px solid #DBDBDB !important;
+}
+td {
+    font-size: 14px;
+    border-bottom: 1px solid #E6E6E6 !important;
+}
+
+/* single project */
+.project .col-md-3.note {
+    margin: 0 10px 20px 0;
+}
+.single .note h3.title {
+    color: #fff;
+    margin: 44px 0 0;
+}
+.single .left-side.note {
+    color: #fff;
+    background: #5898FD;
+    padding: 0 25px 29px;
+    margin: 0 10px 0 0;
+}
+.single .link {
+    padding: 20px 0 0;
+}
+.single .link a {
+    color: #fff;
+    display: block;
+}
+.project .title, .project .ref-no {
+    padding-bottom: 10px;
+    margin: 44px 0 22px;
+}
+.project h4.lbl {
+    color: #D5D5D5;
+    font-size: 16px;
+    margin-top: 0;
+}
+.project h3.page-header {
+    margin: 0;
+    padding: 3px 0;
+}
+.project .ref-no {
+    text-align: right;
+}
+.project p.details {
+    height: 60px;
+}
+.col-md-12.next {
+    margin: 30px 0;
+}
+.next .col-md-8, .next .col-md-3, .next .col-md-4, .col-md-12.summary {
+    padding: 30px;
+}
+.project .next h3.page-header, .summary .page-header {
+    color: #003261;
+}
+.single.project .table-bordered {
+    margin: 20px 0;
+}
+a.btn-add {
+    display: block;
+    color: #5898FD;
+}
+a.btn.manage, button.btn.manage {
+    color: #5898FD;
+    background: #fff;
+    border: 1px solid #5898FD;
+    margin: 30px 0 0;
+}
+a.btn.manage:hover, button.btn.manage:hover {
+    color: #fff;
+    background: #5898FD;
+}
+p.nothing {
+    padding: 30px 0 0;
+}
+.report a.btn {
+    margin: 0 0 0 5px;
+}
+.single.project .save.form-inline {
+    margin: 20px 0;
+}
+.save button.mr-full {
+    padding: 8px 12px;
+}
+
+/* manage project criteria */
+.project.criteria .sec.title, .project.criteria .sec.note, .project.criteria .sec.link  {
+    margin: 0 0 20px;
+    padding: 30px 25px;
+}
+.project.criteria .sec.title h3, .project.criteria .sec.note h3, .project.criteria .sec.link h3 {
+    margin: 0;
+    font-size: 22px;
+}
+.project .sec.link a {
+    display: block;
+    color: #5898FD;
+}
+a.btn.manage.row {
+    margin: 30px 0;
+}
+.vr-middle {
+    vertical-align: middle !important;
+}
+.project.criteria .col-md-12.sec.title {
+    background: #D5D5D5;
+}
+.project.criteria h4.lbl {
+    color: #646464;
+    font-size: 14px;
+}
+
+/* manage project supplier */
+.project.supplier .sec.title, .project.supplier .sec.note, .project.supplier .sec.link  {
+    margin: 0 0 20px;
+    padding: 30px 25px;
+}
+.project.supplier .sec.title h3, .project.supplier .sec.note h3, .project.supplier .sec.link h3 {
+    margin: 0;
+    font-size: 22px;
+}
+.project.supplier .col-md-12.sec.title {
+    background: #5898FD;
+}
+.project.supplier .title h4.lbl, .project.supplier .title h3.title {
+    color: #f7f7f7;
+}
+.project.supplier .full.mr {
+    padding: 0 0 20px;
+}
+.project.supplier .form-inline.search input {
+    margin: 0 20px 0 0;
+    width: 40%;
+}
+.project.supplier button.btn.manage {
+    margin: 0;
+}
+.project.supplier .add .form-inline input {
+    margin: 0 20px 0 0;
+    width: 30%;
+}
+button.btn.save {
+    padding: 6px 40px;
+}
+
+/* manage project evaluator */
+.project.evaluator .form-inline.search input {
+    width: 30%
+}
+a.btn.manage.mr {
+    margin: 0;
+}
+.project.evaluator .search p.lbl {
+    padding: 0 20px;
+    margin: 0;
+}
+
+/* Evaluator Part*/
+
+/* Dashboard */
+.success {
+    color: #068B0B !important;
+    background: #fff !important;
+}
+.error {
+    color: #E37777 !important;
+}
+.evaluation .col-md-3.left-side {
+    padding: 0 10px 0 0;
+}
+.evaluation .col-md-9.right-side {
+    width: 75%;
+}
+.evaluation .pending.border-shadow, .evaluation .completed.border-shadow, .col-md-3 .pending, .col-md-3.note {
+    padding: 44px 25px 25px;
+    margin: 0 0 20px;
+}
+
+/* evaluate project */
+.single.evaluate .left-side.note {
+    color: #646464;
+    background: #f7f7f7;
+    padding: 44px 25px 120px;
+}
+.single.evaluate .note h3.title {
+    color: #646464;
+}
+.single.project .benchmark-note.col-md-3 {
+     width: 32.5%;
+     max-width: 32.5%;
+}
+.single.evaluate .left-side.note p {
+    line-height: 52px;
+}
+.single.evaluate .benchmark-note h3.page-header {
+    color: #646464;
+    font-size: 20px;
+}
+.single.evaluate .benchmark-note .details {
+    padding: 10px 0 0;
+}
+.single.evaluate .benchmark-note span.meta {
+    display: block;
+    padding: 10px 0;
+}
+.single.evaluate .btn-evaluate {
+    margin: 20px 0 0;
 }

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Supplier;
 use App\Project;
+use App\User;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
@@ -13,11 +15,72 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function dash()
     {
-        //
+        $projects = Project::with(['users'])->get();
+        return view('project.dash', compact('projects', 'users'));
     }
 
+    public function add()
+    {
+        $projects = Project::pluck('title', 'id');
+        $suppliers = Supplier::all();
+        return view('project.add', compact('projects', 'suppliers'));
+    }
+
+    public function getProject($id)
+    {
+        $project = Project::findOrFail($id);
+
+        $projects = Project::pluck('title', 'id');
+
+        $pros = Project::all();
+
+        return view('project.single', compact('project', 'projects', 'pros'));
+
+    }
+
+    // manage criteria
+    public function criteriaProject($id)
+    {
+        $project = Project::findOrFail($id);
+
+        $projects = Project::pluck('title', 'id');
+
+        $pros = Project::all();
+
+        return view('project.criteria', compact('project', 'projects', 'pros'));
+
+    }
+
+    // manage supplier
+    public function supplierProject($id)
+    {
+        $project = Project::findOrFail($id);
+
+        $projects = Project::pluck('title', 'id');
+
+        $pros = Project::all();
+
+        return view('project.supplier-pro', compact('project', 'projects', 'pros'));
+
+    }
+
+     // manage evaluator
+    public function evaluatorProject($id)
+    {
+        $project = Project::findOrFail($id);
+
+        $projects = Project::pluck('title', 'id');
+
+        $pros = Project::all();
+
+        return view('project.evaluator', compact('project', 'projects', 'pros'));
+
+    }
+
+
+    // supplier list per project
     public function supplierlist()
     {
         $projects = Project::all();
@@ -57,8 +120,10 @@ class ProjectsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
+            'description' => 'required',
             'reference_no' => 'required',
             'status' => 'required',
+            'price' => 'required',
         ]);
         
         $check_reference_no = Project::where('supplier_id', $request->supplier_id)->where('reference_no', $request->reference_no)->first();
@@ -76,8 +141,11 @@ class ProjectsController extends Controller
 
         $project = new Project;
         $project->title = $request->title;
+        $project->description = $request->description;
         $project->reference_no = $request->reference_no;
         $project->status = $request->status;
+        $project->price = $request->price;
+        $project->created_by = Auth::user()->id;
         $project->document = $image;
         $project->supplier_id = $request->supplier_id;
         $project->save();
@@ -122,6 +190,7 @@ class ProjectsController extends Controller
             'title' => 'required',
             'reference_no' => 'required',
             'status' => 'required',
+            'price' => 'required',
         ]);
 
         $project = Project::findOrFail($id);
@@ -135,6 +204,8 @@ class ProjectsController extends Controller
         $project->title = $request->title;
         $project->reference_no = $request->reference_no;
         $project->status = $request->status;
+        $project->price = $request->price;
+        $project->created_by = Auth::user()->id;
         $project->supplier_id = $request->supplier_id;
         $project->save();
         // dd($request);

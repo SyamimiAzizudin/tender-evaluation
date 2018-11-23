@@ -29,12 +29,17 @@ class Project extends Model
 
     public function evaluates()
     {
-        return $this->belongsTo(Evaluate::class, 'project_id');
+        return $this->hasMany(Evaluate::class);
     }
 
     public function criterias()
     {
         return $this->belongsTo(Criteria::class, 'criteria_id');
+    }
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'created_by');
     }
 
 }
