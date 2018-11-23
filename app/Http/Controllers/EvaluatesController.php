@@ -15,8 +15,27 @@ class EvaluatesController extends Controller
      */
     public function index()
     {
-        $evaluates = Evaluate::all();
+        $evaluates = Evaluate::with(['projects'])->get();
         return view('evaluation.index', compact('evaluates'));
+    }
+
+    public function getEva()
+    {
+        // $evaluates = Evaluate::pluck('title', 'id');
+        $eva = Evaluate::all();
+
+        return view('evaluation.single', compact('evaluate', 'evaluates', 'eva'));
+
+    }
+
+    public function getEvaluation($id)
+    {
+        $evaluate = Evaluate::findOrFail($id);
+        $evaluates = Evaluate::pluck('title', 'id');
+        $eva = Evaluate::all();
+
+        return view('evaluation.single', compact('evaluate', 'evaluates', 'eva'));
+
     }
 
     /**

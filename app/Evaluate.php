@@ -28,7 +28,7 @@ class Evaluate extends Model
 
 	public function projects()
 	{
-	    return $this->hasMany(Project::class, 'project_id');
+	    return $this->belongsTo(Project::class, 'project_id');
 	}
 
 	public function user()
