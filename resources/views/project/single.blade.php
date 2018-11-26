@@ -4,14 +4,15 @@
 @section('content')
 
 <div class="row single project">
-    <div class="col-lg-12 full">
-    	<ol class="breadcrumb">
+    <div class="col-md-12 full">
+        <ol class="breadcrumb">
             <li><a href="{{ url('/home') }}">Sourcing</a></li>
             <li><a href="{{ url('/project-dashboard') }}">Project</a></li>
             <li class="active">{{ $project->title }}</li>
-        </ol>
-        <div class="col-md-12 full">
-        	<div class="col-md-3 left-side border-shadow note">
+        </ol><!-- .breadcrumb -->
+
+        <div class="cs-section full">
+            <div class="col-md-3 left-side border-shadow note">
                 <div class="page-header">
                     <h3 class="title mr-full">Note:</h3>
                 </div>
@@ -28,8 +29,8 @@
                         <button type="submit" class="btn manage mr-full">Save</button>
                     </div>
                 </div>
-        	</div>
-        	<div class="col-md-9 right-side border-shadow">
+            </div>
+            <div class="col-md-9 right-side border-shadow">
                 <div class="col-sm-12 full">
                     <div class="col-sm-6 title full">
                         <h4 class="lbl">Project Title</h4>
@@ -44,10 +45,10 @@
                     <h4 class="lbl">Project Description</h4>
                     <p class="details"> {{ $project->description }} </p>
                 </div>
-        	</div>
-        </div>
+            </div>
+        </div><!-- .cs-section -->
 
-        <div class="col-md-12 full next">
+        <div class="cs-section full next">
             <div class="col-md-4 border-shadow">
                 <h3 class="page-header">1. Criterias</h3>
                 <table align="center" class="table table-striped table-bordered"> 
@@ -136,9 +137,9 @@
                 <a href="#" class="btn-add">Add Evaluator</a>
                 <a href="{{ url('/project/evaluator') }}/{{ $project->id }}" class="btn manage pull-right">Manage Evaluator</a>
             </div>
-        </div>
+        </div><!-- .cs-section -->
 
-        <div class="col-md-12 border-shadow summary">
+        <div class="cs-section border-shadow summary">
             <h3 class="page-header">Summary Report</h3>
             <table align="center" class="table table-striped table-bordered"> 
                 <tr>
@@ -182,9 +183,7 @@
                 <a href="#" class="btn manage">Export to XLS</a>
                 <a href="#" class="btn manage">Export to CSV</a>
             </div>
-        </div>
-        
- 	</div>
-</div>
-
+        </div><!-- .cs-section -->
+    </div><!-- .col-md-12 -->
+</div><!-- .row -->
 @endsection

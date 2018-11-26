@@ -4,15 +4,14 @@
 
 /* header */
 body {
-	/*font-family: Nunito,sans-serif !important;*/
     font-family: 'Work Sans', sans-serif !important;
-	color: #777 !important;
+    color: #777 !important;
     background: #f5f5f5;
 }
 .page-header {
-	padding-bottom: 10px;
-	margin: 44px 0 0;
-	border-bottom: none;
+    padding-bottom: 10px;
+    margin: 44px 0 0;
+    border-bottom: none;
     color: #646464;
 }
 .btn-default {
@@ -42,13 +41,13 @@ ul.navbar-nav.mr-auto {
     padding: 10px;
 }
 .navbar {
-	padding: 0 0 15px;
+    padding: 0 0 15px;
 }
 .navbar-brand {
-	padding: 0 15px;
+    padding: 0 15px;
 }
 .row.outer {
-	margin: 0 0 40px;
+    margin: 0 0 40px;
 }
 p.copyright {
     font-size: 18px;
@@ -81,16 +80,16 @@ p.copyright {
     display: table;
 }
 .form-control {
-	height: 36px !important;
+    height: 36px !important;
 }
 td.mv-right {
-	text-align: right;
+    text-align: right;
 }
 .document input[type="file"] {
-	padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 .login .form-check-label {
-	padding: 0 20px;
+    padding: 0 20px;
 }
 /* footer */
 div#footer {
@@ -98,7 +97,7 @@ div#footer {
 }
 /* message error */
 .alert-dismissable .close, .alert-dismissible .close {
-	top: -8px;
+    top: -8px;
 }
 .padding1 {
     padding: 50px 0 0 !important;
@@ -115,13 +114,13 @@ div#footer {
     align-items: center;
 }
 @media (min-width: 768px) {
-	.navbar-expand-md .navbar-nav .nav-link {
-	    padding-right: 1.5rem;
-	    padding-left: 1.5rem;
-	}
-	.navbar-nav > li {
-		height: 45px;
-	}
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+    .navbar-nav > li {
+        height: 45px;
+    }
 }
 /* table user */
 .center {
@@ -179,7 +178,7 @@ textarea.form-control {
     padding: 0 10px 0 0;
 }
 .right-side {
-    padding: 0 30px 30px;
+    padding: 30px;
 }
 h3.title {
     margin: 0;
@@ -188,10 +187,10 @@ h3.title {
     border-bottom: none;
     padding-bottom: 0;
 }
-.col-md-6.form-group:nth-child(odd) label.control-label, .col-md-6.form-group:nth-child(odd) .col-sm-12, .col-md-6.form-group:nth-child(odd) {
+.col-md-6.form-group:nth-child(odd) label.control-label, .col-md-6.form-group:nth-child(odd) .cs-section, .col-md-6.form-group:nth-child(odd) {
     padding-left: 0;
 }
-.col-md-6.form-group:nth-child(even) label.control-label, .col-md-6.form-group:nth-child(even) .col-sm-12, .col-md-6.form-group:nth-child(even) {
+.col-md-6.form-group:nth-child(even) label.control-label, .col-md-6.form-group:nth-child(even) .cs-section, .col-md-6.form-group:nth-child(even) {
     padding-right: 0;
 }
 .col-md-6.form-group {
@@ -204,8 +203,8 @@ h3.title {
 .mr-full {
     margin: 0 !important;
 }
-.full.btn {
-    margin: 10px 0 30px;
+.cs-section.sv-submit {
+    margin: 10px 0;
 }
 .breadcrumb {
     background: unset;
@@ -230,8 +229,7 @@ h3.number {
 }
 
 .dropdown.pull-right {
-    padding-bottom: 10px;
-    margin: 44px 0 22px;
+    margin: 10px 0 20px;
 }
 .dropdown-toggle:after {
     content: none;
@@ -298,7 +296,7 @@ td {
 }
 .project .title, .project .ref-no {
     padding-bottom: 10px;
-    margin: 44px 0 22px;
+    margin: 10px 0 20px;
 }
 .project h4.lbl {
     color: #D5D5D5;
@@ -313,12 +311,12 @@ td {
     text-align: right;
 }
 .project p.details {
-    height: 60px;
+    height: 70px;
 }
-.col-md-12.next {
+.cs-section.next {
     margin: 30px 0;
 }
-.next .col-md-8, .next .col-md-3, .next .col-md-4, .col-md-12.summary {
+.next .col-md-8, .next .col-md-3, .next .col-md-4, .cs-section.summary {
     padding: 30px;
 }
 .project .next h3.page-header, .summary .page-header {
@@ -351,7 +349,7 @@ p.nothing {
     margin: 20px 0;
 }
 .save button.mr-full {
-    padding: 8px 12px;
+    padding: 8px 10px;
 }
 
 /* manage project criteria */
@@ -373,7 +371,7 @@ a.btn.manage.row {
 .vr-middle {
     vertical-align: middle !important;
 }
-.project.criteria .col-md-12.sec.title {
+.project.criteria .cs-section.sec.title {
     background: #D5D5D5;
 }
 .project.criteria h4.lbl {
@@ -390,7 +388,7 @@ a.btn.manage.row {
     margin: 0;
     font-size: 22px;
 }
-.project.supplier .col-md-12.sec.title {
+.project.supplier .cs-section.sec.title {
     background: #5898FD;
 }
 .project.supplier .title h4.lbl, .project.supplier .title h3.title {
@@ -415,6 +413,9 @@ button.btn.save {
 }
 
 /* manage project evaluator */
+.cs-section.form-inline.search.mr {
+    margin-bottom: 15px;
+}
 .project.evaluator .form-inline.search input {
     width: 30%
 }
@@ -424,6 +425,7 @@ a.btn.manage.mr {
 .project.evaluator .search p.lbl {
     padding: 0 20px;
     margin: 0;
+    display: inline-block;
 }
 
 /* Evaluator Part*/
@@ -476,4 +478,25 @@ a.btn.manage.mr {
 }
 .single.evaluate .btn-evaluate {
     margin: 20px 0 0;
+}
+.cs-section {
+    display: block;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+    -webkit-box-flex: 0;
+}
+h3.header {
+    margin: 10px 0 20px;
+}
+.cs-section.nx-btn.full {
+    margin: 40px 0;
+}
+
+/* new */
+.navbar-light .navbar-nav .nav-link {
+    color: #003261;
 }
