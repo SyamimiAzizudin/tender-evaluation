@@ -1,71 +1,78 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <title>UMW Sourcing</title>
 
-                <div class="card-body login">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+    <script src="{{ asset('js/app.js') }}"></script>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<img src="{{ asset('img/umw-login-logo.png') }}" class="img-responsive center-block login" alt="Responsive image">
+		</div>
+		<div class="row center-block login">
+			<div class="text-center">
+				<h1>Sourcing System</h1>
+			</div>
+		</div>
+		<div class="row login">
+			<form class="form-horizontal center-block" method="POST" action="{{ route('login') }}">
+				@csrf
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+				<div class="form-group login">
+					<label for="email" class="col-sm-3 control-label text-right">{{ __('Email') }}</label>
+					<div class="col-sm-8">
+						<input id="email" type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" required autofocus>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+						@if ($errors->has('email'))
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $errors->first('email') }}</strong>
+							</span>
+						@endif
+					</div>
+				</div>
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+				<div class="form-group login">
+					<label for="password" class="col-sm-3 control-label text-right">{{ __('Password') }}</label>
+					<div class="col-sm-8">
+						<input id="password" type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+						@if ($errors->has('password'))
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $errors->first('password') }}</strong>
+							</span>
+						@endif
+					</div>
+				</div>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+				<div class="form-group login">
+					<div class="col-xs-4 text-center">
+						<small><a href="{{ route('password.request') }}">{{ __('Lost Password') }}</a></small>
+					</div>
+					<button type="submit" class="btn btn-primary col-sm-2 col-sm-offset-4">{{ __('Login') }}</button>
+				</div>
+			</form>
+		</div>
+		<div class="row center-block">
+			<div class="text-center contact">
+				<small>Contact : admin-sourcing@umw.com.my or 03-4525 2215</small>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-use App\Evaluate;
-use App\Supplier;
-use App\Criteria;
-use App\Project;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
-class EvaluatesController extends Controller
+class ReportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,26 +14,7 @@ class EvaluatesController extends Controller
      */
     public function index()
     {
-        $pending_eva_count = DB::table('projects')
-                            ->select('status')
-                            ->where ('status', '=', 'Not Evaluated')
-                            ->count();
-        $completed_eva_count = DB::table('projects')
-                            ->select('status')
-                            ->where ('status', '=', 'Completed')
-                            ->count();
-        $evaluates = Evaluate::with(['projects'])->get();
-        return view('evaluation.index', compact('evaluates', 'pending_eva_count', 'completed_eva_count'));
-    }
-
-    public function getEvaluation($id)
-    {
-        // $evaluates = Evaluate::pluck('title', 'id');
-        $evaluate = Evaluate::findOrFail($id);
-        $evaluates = Evaluate::with(['projects'])->get();
-        $criterias = Evaluate::with(['criterias'])->get();
-        return view('evaluation.single', compact('evaluate', 'evaluates', 'criterias'));
-
+        //
     }
 
     /**

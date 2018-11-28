@@ -28,6 +28,7 @@ Route::patch('/user-bulk/update', 'UsersController@bulkUpdate');
 
 // Supplier
 Route::resource('/supplier', 'SuppliersController');
+Route::get('/supplier/create', 'SuppliersController@create');
 Route::delete('/supplier/{supplier}/delete', 'SuppliersController@destroy');
 
 // Project
@@ -52,10 +53,29 @@ Route::resource('/criteria', 'CriteriasController');
 Route::post('import', 'CriteriasController@import')->name('import');
 
 // Evaluation
-Route::resource('/evaluation', 'EvaluatesController');
+// Route::resource('/evaluation', 'EvaluatesController');
+Route::get('/evaluation', 'EvaluatesController@index');
 Route::get('/evaluation/{evaluate}', 'EvaluatesController@getEvaluation');
-Route::get('/pro-evaluation', 'EvaluatesController@getEva');
-
 
 // Report
+Route::get('/report', function(){
+	return view('report.index');
+});
+Route::get('/report/project', function(){
+	return view('report.single');
+});
+Route::get('/report/company', function(){
+	return view('report.company-report');
+});
+Route::get('/report/evaluator', function(){
+	return view('report.evaluator-report');
+});
+
+//html
+Route::get('/html/company', function(){
+	return view('supplier.single');
+});
+Route::get('/html/user', function(){
+	return view('user.single');
+});
 

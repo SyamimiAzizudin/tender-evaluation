@@ -34,22 +34,26 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/project-dashboard') }}">1. Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/criteria') }}">2. Criteria</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/supplier') }}">3. Supplier</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/evaluation') }}">4. Evaluation</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/report') }}">5. Progress Report</a>
-                        </li>
+                    <ul class="navbar-nav mr-auto navbar-left">
+                        @guest
+
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/project-dashboard') }}">1. Projects</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">2. Criteria</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/supplier') }}">3. Supplier</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/evaluation') }}">4. Evaluation</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url('/report') }}">5. Progress Report</a>
+                            </li>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -68,16 +72,20 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/user') }}">Users</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('logout') }}" 
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    Hi {{ Auth::user()->name }}, Logout
-                                </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
+                            <div class="dropdown nav-item">
+                                <li class="nav-item"> Hi, {{ Auth::user()->name }} &nbsp; <img src="{{ asset('img/user.png') }}" alt="user" class="nav-icon">
+                                    <div class="dropdown-content">
+                                        <a class="nav-link" href="{{ route('logout') }}" 
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                </li>
+                            </div>
                         @endguest
                     </ul>
                 </div>
@@ -113,7 +121,6 @@
                 </div>
             </div>
         </div><!-- .container -->
-        
     </div><!-- #app -->
 
     <!-- Footer -->

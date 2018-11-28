@@ -43,7 +43,7 @@ class Evaluate extends Model
 
 	public function criterias()
 	{
-	    return $this->hasTwo(Criteria::class, 'criteria_id');
+	    return $this->belongsTo(Criteria::class, 'criteria_id');
 	}
 
 }

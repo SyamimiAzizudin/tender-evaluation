@@ -7,6 +7,7 @@ use App\Supplier;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProjectsController extends Controller
 {
@@ -17,8 +18,12 @@ class ProjectsController extends Controller
      */
     public function dash()
     {
+        $pending_eva_count = DB::table('projects')
+                            ->select('status')
+                            ->where ('status', '=', 'Not Evaluated')
+                            ->count();
         $projects = Project::with(['users'])->get();
-        return view('project.dash', compact('projects', 'users'));
+        return view('project.dash', compact('projects', 'users', 'pending_eva_count'));
     }
 
     public function add()
@@ -79,7 +84,6 @@ class ProjectsController extends Controller
 
     }
 
-
     // supplier list per project
     public function supplierlist()
     {
@@ -120,10 +124,9 @@ class ProjectsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'description' => 'required',
             'reference_no' => 'required',
-            'status' => 'required',
-            'price' => 'required',
+            'closing_date' => 'required',
+            'description' => 'required',
         ]);
         
         $check_reference_no = Project::where('supplier_id', $request->supplier_id)->where('reference_no', $request->reference_no)->first();
@@ -141,16 +144,14 @@ class ProjectsController extends Controller
 
         $project = new Project;
         $project->title = $request->title;
-        $project->description = $request->description;
         $project->reference_no = $request->reference_no;
-        $project->status = $request->status;
-        $project->price = $request->price;
+        $project->closing_date = $request->closing_date;
+        $project->description = $request->description;
         $project->created_by = Auth::user()->id;
-        $project->document = $image;
-        $project->supplier_id = $request->supplier_id;
+        // $project->document = $image;
+        // $project->supplier_id = $request->supplier_id;
         $project->save();
-        // dd($request);
-        return redirect()->action('ProjectsController@getSupplierProject', ['supplier_id' => $request->supplier_id])->withMessage('Project has been successfully added!');
+        return redirect()->action('ProjectsController@dash')->withMessage('Project has been successfully added!');
     }
 
     /**
@@ -173,8 +174,9 @@ class ProjectsController extends Controller
     public function edit($id)
     {
         $suppliers = Supplier::all();
+        $projects = Project::pluck('title', 'id');
         $project = Project::findOrFail($id);
-        return view('project.edit', compact('project', 'suppliers'));
+        return view('project.edit', compact('project', 'projects', 'suppliers'));
     }
 
     /**
@@ -189,8 +191,8 @@ class ProjectsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'reference_no' => 'required',
-            'status' => 'required',
-            'price' => 'required',
+            'closing_date' => 'required',
+            'description' => 'required',
         ]);
 
         $project = Project::findOrFail($id);
@@ -203,13 +205,12 @@ class ProjectsController extends Controller
 
         $project->title = $request->title;
         $project->reference_no = $request->reference_no;
-        $project->status = $request->status;
-        $project->price = $request->price;
+        $project->closing_date = $request->closing_date;
+        $project->description = $request->description;
         $project->created_by = Auth::user()->id;
-        $project->supplier_id = $request->supplier_id;
+        // $project->supplier_id = $request->supplier_id;
         $project->save();
-        // dd($request);
-        return redirect()->action('ProjectsController@getSupplierProject', ['supplier_id' => $request->supplier_id])->withMessage('Project has been successfully updated!');
+        return redirect()->action('ProjectsController@edit', ['supplier_id' => $request->supplier_id])->withMessage('Project has been successfully updated!');
     }
 
     /**

@@ -87,7 +87,7 @@ class UsersController extends Controller
      */
     public function create(Request $request)
     {
-        //
+        return view('user.create');
     }
 
     /**
