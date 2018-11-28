@@ -1,99 +1,78 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>UMW Sourcing</title>
+    <title>UMW Sourcing</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-            .full-height {
-                height: 100vh;
-            }
+    <script src="{{ asset('js/app.js') }}"></script>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<img src="{{ asset('img/umw-login-logo.png') }}" class="img-responsive center-block login" alt="Responsive image">
+		</div>
+		<div class="row center-block login">
+			<div class="text-center">
+				<h1>Sourcing System</h1>
+			</div>
+		</div>
+		<div class="row login">
+			<form class="form-horizontal center-block" method="POST" action="{{ route('login') }}">
+				@csrf
 
-            .position-ref {
-                position: relative;
-            }
+				<div class="form-group login">
+					<label for="email" class="col-sm-3 control-label text-right">{{ __('Email') }}</label>
+					<div class="col-sm-8">
+						<input id="email" type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{ old('email') }}" required autofocus>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+						@if ($errors->has('email'))
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $errors->first('email') }}</strong>
+							</span>
+						@endif
+					</div>
+				</div>
 
-            .content {
-                text-align: center;
-            }
+				<div class="form-group login">
+					<label for="password" class="col-sm-3 control-label text-right">{{ __('Password') }}</label>
+					<div class="col-sm-8">
+						<input id="password" type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required>
 
-            .title {
-                font-size: 84px;
-            }
+						@if ($errors->has('password'))
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $errors->first('password') }}</strong>
+							</span>
+						@endif
+					</div>
+				</div>
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    UMW Sourcing 2018
-                </div>
-
-                <div class="links">
-                    <a href="{{ url('/user') }}">Users</a>
-                    <a href="{{ url('/supplier') }}">Suppliers</a>
-                    <a href="{{ url('/project-supplier') }}">Projects</a>
-                    <a href="{{ url('/criteria') }}">Criteria</a>
-                    <a href="{{ url('/weightage') }}">Weightages</a>
-                    <a href="{{ url('/evaluation') }}">Evaluations</a>
-                    <a href="{{ url('/report') }}">Report</a>
-                </div>
-            </div>
-        </div>
-    </body>
+				<div class="form-group login">
+					<div class="col-xs-4 text-center">
+						<small><a href="{{ route('password.request') }}">{{ __('Lost Password') }}</a></small>
+					</div>
+					<button type="submit" class="btn btn-primary col-sm-2 col-sm-offset-4">{{ __('Login') }}</button>
+				</div>
+			</form>
+		</div>
+		<div class="row center-block">
+			<div class="text-center contact">
+				<small>Contact : admin-sourcing@umw.com.my or 03-4525 2215</small>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

@@ -549,7 +549,7 @@ div.role, div.contact{
 ul.navbar-nav .dropdown{
     position: relative;
     display: inline-block;
-    padding: 10.5px;
+    padding: 11px;
     color: #003261;
 }
 .dropdown-content {

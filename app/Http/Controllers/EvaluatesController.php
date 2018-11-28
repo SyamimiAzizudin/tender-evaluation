@@ -38,7 +38,6 @@ class EvaluatesController extends Controller
         $evaluates = Evaluate::with(['projects'])->get();
         $criterias = Evaluate::with(['criterias'])->get();
         return view('evaluation.single', compact('evaluate', 'evaluates', 'criterias'));
-
     }
 
     /**
