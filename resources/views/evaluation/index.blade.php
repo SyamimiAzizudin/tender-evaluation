@@ -33,15 +33,14 @@
                 <h3 class="page-header"> List of Projects </h3>
             </div>
             <div class="col-md-8">
-                <div class="dropdown pull-right">
-                    <button class="btn btn-sort dropdown-toggle" type="button" data-toggle="dropdown">Sort by
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Title</a></li>
-                        <li><a href="#">Price</a></li>
-                        <li><a href="#">Date Modified</a></li>
-                    </ul>
-                </div>
+                <form class="pull-right">
+                    <select class="form-control btn-sortby">
+                        <option>Sort By</option>
+                        <option>Title</option>
+                        <option>Price</option>
+                        <option>Date Modified</option>
+                    </select>
+                </form>
             </div>
             <table align="center" class="table table-striped table-bordered"> 
                 <tr>
