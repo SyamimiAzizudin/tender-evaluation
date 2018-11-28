@@ -4,7 +4,6 @@
 
 /* header */
 body {
-    /*font-family: Nunito,sans-serif !important;*/
     font-family: 'Work Sans', sans-serif !important;
     color: #777 !important;
     background: #f5f5f5;
@@ -167,7 +166,7 @@ textarea.form-control {
         max-width: 32.5%;
     }
     .single.project .next .col-md-4 {
-        width: 33.6%;
+        width: 32.9%;
         max-width: 33.6%;
     }
 
@@ -422,6 +421,9 @@ button.btn.save {
 }
 
 /* manage project evaluator */
+.cs-section.form-inline.search.mr {
+    margin-bottom: 15px;
+}
 .project.evaluator .form-inline.search input {
     width: 30%
 }
@@ -625,8 +627,9 @@ input.supplier-search{
     color: white;
 }
 .report .project-title-box{
-    width: 73%;
+    width: 74%;
     margin-left: 1%;
+    margin-right: 0;
 }
 .report small.ghost-text{
     color: #D5D5D5;
@@ -716,4 +719,11 @@ input.supplier-search{
 .project-count{
     padding: 25px;
     margin: 0;
+}
+.report.text-center{
+    width: 100%;
+}
+.full.report .col-md-4.border-shadow{
+    width: 32.7%;
+    max-width: 35%;
 }
